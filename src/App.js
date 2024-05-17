@@ -1,5 +1,6 @@
 import "./App.css";
-import SearchCity from "./Weather";
+
+import Forecast from "./Forecast";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         </div>
       </div>
       <div class="weather-forecast" id="forecast"></div>
+      <Forecast />
       <footer>
         Coded by
         <a href="https://github.com/mqhelem">Nomqhele Mhlanga,</a> source code
