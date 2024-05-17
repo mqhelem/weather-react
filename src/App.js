@@ -1,23 +1,44 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Weather from "./Weather";
+import SearchCity from "./Weather";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello World from Johannesburg</p>
-        <a
-          className="App-link"
-          href="https://github.com/mqhelem/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Developed by Nomqhele Mhlanga
-        </a>
-        <Weather city="New york" />
-      </header>
+    <div class="weather-app">
+      <form id="searchForm">
+        <input class="city" id="city" placeholder="Enter your city" />
+        <input class="submit" type="submit" value="Search" />
+      </form>
+
+      <div class="weather">
+        <div>
+          <h1 class="current-city" id="current-city">
+            Paris
+          </h1>
+          <p class="weather-details">
+            <span id="time"></span>, <span id="description"></span> <br />
+            Humidity: <strong id="humidity"></strong>, Wind:
+            <strong id="wind"></strong>
+          </p>
+        </div>
+        <div class="current-temperature">
+          <img
+            class="icon"
+            id="icon"
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+          />
+          <span class="temperature" id="temperature"></span>
+          <span class="unit">°C</span>
+        </div>
+      </div>
+      <div class="weather-forecast" id="forecast"></div>
+      <footer>
+        Coded by
+        <a href="https://github.com/mqhelem">Nomqhele Mhlanga,</a> source code
+        hosted in
+        <a href="https://github.com/mqhelem/weather-react">Github,</a>
+        app available at
+        <a href="https://weatherfourcast.netlify.app/">Netlify</a>
+      </footer>
     </div>
   );
 }
