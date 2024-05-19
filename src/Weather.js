@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function Weather(props) {
+export default function Weather() {
   let [city, setCity] = useState("Johannesburg");
   let [loaded, setLoaded] = useState(false);
   let [weather, setWeather] = useState({});
@@ -29,7 +29,7 @@ export default function Weather(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
+          type="search"
           placeholder="Enter your city"
           className="cityName"
           onChange={updateCity}
@@ -37,27 +37,37 @@ export default function Weather(props) {
         <input type="submit" value="Search city" />
       </form>
       <hr></hr>
-      <h1>{city}</h1>
     </div>
   );
   if (loaded) {
     return (
       <div>
         {form}
-        <h1>{setCity}</h1>
-        <div className="weather">
-          <p className="details">
-            Temperature: <strong>{Math.round(weather.temperature)}℃ </strong>,
-            Humidity: <strong>{Math.round(weather.humidity)}%</strong>
-            <br />
-            Description: {weather.description}, Wind:{" "}
-            <strong>
-              {Math.round(weather.wind)}
-              km/hr
-            </strong>
-          </p>
-          <img class="icon" src={weather.icon} alt={weather.description} />
+        <div class="city-ico-temp">
+          <div>
+            <span class="your-city">{city}</span>
+            <p className="details">
+              Temperature: <strong>{Math.round(weather.temperature)}℃ </strong>,
+              Humidity: <strong>{Math.round(weather.humidity)}%</strong>
+              <br />
+              Description: {weather.description}, Wind:{" "}
+              <strong>
+                {Math.round(weather.wind)}
+                km/hr
+              </strong>
+            </p>
+          </div>
+          <div>
+            <span class="icon">
+              <img src={weather.icon} alt={weather.description} />
+            </span>
+            <span class="temperature">{Math.round(weather.temperature)}</span>
+            <span class="unit">℃</span>
+          </div>
         </div>
+        <div></div>
+
+        <hr></hr>
       </div>
     );
   } else {
